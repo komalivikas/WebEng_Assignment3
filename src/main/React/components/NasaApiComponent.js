@@ -1,47 +1,19 @@
+// src/React/component/NasaApiComponent.js
+
 import React, { useState, useEffect } from 'react';
 import './NasaApiComponent.css'; // Import CSS file for styling
-
+import useNASAStore from '../store/NASAStore';
 
 const NasaApiComponent = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(null);
   const [date, setDate] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [count, setCount] = useState(0);
-
-  
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      // Construct API URL based on selected options
-      let apiUrl = 'http://localhost:8080/nasa/apod';
-      if (date) {
-        apiUrl += `?date=${date}`;
-      } else if (startDate && endDate) {
-        apiUrl += `?start_date=${startDate}&end_date=${endDate}`;
-      } else if (count > 0) {
-        apiUrl += `?count=${count}`;
-      }
-
-      const response = await fetch(apiUrl);
-      const result = await response.json();
-      setData(result);
-      setLoading(false);
-    } catch (error) {
-      setError(error);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [date, startDate, endDate, count]); // Update data when inputs change
+  const { data, loading, error, fetchData } = useNASAStore();
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    fetchData(); // Fetch data when form is submitted
+    fetchData(date, startDate, endDate, count); // Pass parameters to fetchData function
   };
 
   const handleClear = () => {
@@ -86,7 +58,7 @@ const NasaApiComponent = () => {
     </form>
 
     <ul>
-      {data.map((item, index) => (
+      {data && data.map((item, index) => (
         <li key={index}>
           <h2>{item.title}</h2>
           <p>Date: {item.date}</p>
