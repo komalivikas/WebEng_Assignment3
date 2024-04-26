@@ -1,13 +1,22 @@
 import React from 'react';
-import Welcome from './Welcome';
+import About from './components/About';
+import Header from './components/Header';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import NasaApiComponent from './components/NasaApiComponent';
 
 function App() {
   return (
+    <Router>
     <div>
-    <NasaApiComponent/>
+    <Header />
+        <Routes>
+          <Route path="/" element={<NasaApiComponent />} />
+          <Route path="/about" element={<About />} />
+         {/* // <Route path="/contact" element={<Contact />} /> */}
+        </Routes>
     </div>
+    </Router>
   );
 }
 
