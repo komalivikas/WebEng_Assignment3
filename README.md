@@ -1,3 +1,57 @@
+# React State : Assignment3 ; Application using Zustand, state, and the store to maintain API information 
+## Nasa API Fetcher
+
+## Repository
+
+https://github.com/komalivikas/WebEng_Assignment3.git
+
+## Overview
+
+NASA API Fetcher is a web application built with React.js that allows users to retrieve information from the NASA API. The application makes use of Zustand for state management, ensuring that API information is available throughout the app. API calls are made from the store, providing a centralized location for managing data retrieval.
+
+Users can specify a date, a range of dates, or a count to fetch data from the NASA API. The fetched information is displayed in the UI, providing titles, dates, explanations, and images retrieved from the API.
+
+## Features
+
+- Select a single date to fetch data for that specific date.
+- Specify a range of dates to fetch data for that period.
+- Provide a count to fetch a specific number of entries from the NASA API.
+- Display fetched data including titles, dates, explanations, and images.
+- Navigaate using About link to view an About message
+- Home Page link to come back to the Home Page.
+
+## Screenshots
+
+Home Page
+![Alt Text](ImagesUpdated/HomePage.png)
+
+About Page
+![Alt Text](ImagesUpdated/AboutPage.png)
+
+Selecting a Single Date
+![Alt Text](ImagesUpdated/SelectDate.png)
+
+Selecting a Range of Dates
+![Alt Text](ImaImagesUpdatedges/DateRange.png)
+
+Providing a Count
+![Alt Text](ImagesUpdated/Count.png)
+
+## Usage
+
+- Open the application in your web browser.
+- Select a date, a range of dates, or provide a count.
+- Click on the "Fetch Data" button to retrieve information from the NASA API.
+- The fetched data will be displayed below the form.
+
+##Dependencies
+
+- React.js
+- NASA API
+- Zustand (for state management)
+
+================================================
+
 # React Nasa API : Assignment2
 ## Continuation of Assignment1: Nasa Api APOD Spring API Project
 
